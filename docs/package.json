@@ -1,0 +1,19 @@
+{
+  "name": "docs",
+  "version": "0.0.1",
+  "description": "Helper global",
+  "main": "index.js",
+  "authors": {
+    "name": "Martin",
+    "email": "mdklauer@gmail.com"
+  },
+  "repository": "Helper/docs",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
