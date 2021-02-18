@@ -1,8 +1,161 @@
-/**
- * Custom Styles here.
- *
- * ref：https://v1.vuepress.vuejs.org/config/#index-styl
- */
+body{
+    overflow-x: hidden !important;
+}
 
-.home .hero img
-  max-width 450px!important
+@media (min-width: 1000px)
+    .front
+        max-height: 85vh;
+    .home .features
+        margin-bottom: 170px !important
+
+@media (max-width: 999px)
+    .custom
+        background: #fff;
+        position: absolute;
+        padding: 20px 30px 0 20px !important;
+        margin: 0;
+        max-width: 100%;
+        left: 0;
+        overflow-x: hidden !important;
+
+/* reset */
+img,
+table,
+td,
+blockquote,
+code,
+pre,
+textarea,
+input,
+video,
+svg {
+  max-width: 100%;
+}
+
+figure {
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    font-variant: small-caps;
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+h3 {
+    opacity: 0.9;
+}
+
+/* Hero */
+.front {
+    height: 100vh;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8)), url("/apps/docs/VIDEO-MINING.jpg");
+    background-size: cover;
+    padding-top: 10%;
+}
+
+.hero {
+    //min-height: 100vh;
+}
+
+#main-title, .description, .contact{
+    background-color: $accentColor;
+    margin: 0;
+    padding: 1.5rem;
+    color: white !important;
+}
+
+
+.contact a {
+    color: white;
+}
+.contact strong {
+    font-size: 1.8em;
+    font-weight: lighter;
+}
+
+#main-title{
+    font-size: 1.8em;
+    text-transform: uppercase;
+    font-weight: lighter;
+    margin-top: 5rem !important;
+    text-rendering: optimizeLegibility;
+    color: #e0dfdc;
+    letter-spacing: .1em;
+    
+  }
+
+/* Tagline */
+.description {
+  min-height: 2em;
+  margin: 0 !important;
+  margin-bottom: 5rem !important;
+  max-width: none !important;
+  width: auto !important;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  text-rendering: optimizeLegibility;
+  letter-spacing: .1em;
+  /*font-weight: bold;*/
+  font-weight: lighter;
+  font-size: 1.6em !important;
+}
+
+.features {
+    margin-bottom: 5rem !important;
+}
+
+/*
+ * Page
+ */
+.page h1{
+    text-transform: uppercase;
+    font-weight: lighter;
+} 
+
+.page h2{
+    font-weight: lighter;
+    margin-bottom: 60px !important;
+    border-color: #6394E8;
+}
+
+.page hr{
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.page video {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.page img {
+    margin: 30px;
+    border-radius: 5px;
+}
+
+
+h3 {
+    text-align: center;
+}
+
+.grid {
+    max-width: 960px;
+    margin: auto;
+    text-align: center;
+}
+
+.grid > figure {
+    display: inline-block;
+    width: 50%;
+    margin-left: -4px;
+}
+
+@media(max-width: 999px){
+    .custom{
+        position: relative !important;
+        background: transparent !important;
+    }
+}

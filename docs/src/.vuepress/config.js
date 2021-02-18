@@ -1,14 +1,16 @@
 const { description } = require('../../package')
+const fs = require("fs");
+const path = require("path");
 
 module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'Vuepress Docs Boilerplate',
+  title: 'Global Helper',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
-  description: description,
+  description: '',
 
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -34,29 +36,22 @@ module.exports = {
     lastUpdated: false,
     nav: [
       {
-        text: 'Guide',
-        link: '/guide/',
+        text: 'Linux',
+        link: '/linux/',
       },
       {
-        text: 'Config',
-        link: '/config/'
+        text: 'Windows',
+        link: '/windows/'
       },
       {
-        text: 'VuePress',
-        link: 'https://v1.vuepress.vuejs.org'
+        text: 'Docker',
+        link: '/docker/'
       }
     ],
     sidebar: {
-      '/guide/': [
-        {
-          title: 'Guide',
-          collapsable: false,
-          children: [
-            '',
-            'using-vue',
-          ]
-        }
-      ],
+      "/docker/" : getSideBar("docker", "Docker"),
+      "/linux/"  : getSideBar("linux", "Linux"),
+      "/windows/": getSideBar("windows", "Windows")
     }
   },
 
@@ -67,4 +62,20 @@ module.exports = {
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
   ]
+}
+
+
+function getSideBar(folder, title) {
+  const extension = [".md"];
+
+  const files = fs
+    .readdirSync(path.join(`${__dirname}/../${folder}`))
+    .filter(
+      item =>
+        item.toLowerCase() != "readme.md" &&
+        fs.statSync(path.join(`${__dirname}/../${folder}`, item)).isFile() &&
+        extension.includes(path.extname(item))
+    );
+
+  return [{ title: title, children: ["", ...files] }];
 }
